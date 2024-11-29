@@ -11,10 +11,10 @@ export const getKLines = async (
   market: string,
   interval: string,
   startTime: number,
-  endTime: number
+  endTime: number,
 ): Promise<KLine[]> => {
   const response = await axios.get(
-    `${backend_url}/klines?symbol=${market}&interval=${interval}&startTime=${startTime}&endTime=${endTime}`
+    `${backend_url}/klines?symbol=${market}&interval=${interval}&startTime=${startTime}&endTime=${endTime}`,
   );
 
   const data = response.data;

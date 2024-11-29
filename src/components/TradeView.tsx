@@ -17,8 +17,8 @@ const TradeView = ({ market }: { market: string }) => {
 
   // Update background and text colors based on theme
   useEffect(() => {
-    bgColor.current.background = theme === "light" ? "#dfdfdf" : "#020817";
-    bgColor.current.text = theme === "light" ? "#0a1528f" : "#e5e5e5";
+    bgColor.current.background = theme === "light" ? "white" : "black";
+    bgColor.current.text = theme === "light" ? "black" : "white";
   }, [theme]);
 
   // Update chart dimensions based on viewport size
