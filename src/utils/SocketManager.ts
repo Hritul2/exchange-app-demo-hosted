@@ -37,6 +37,7 @@ export class SocketManager {
       const message = JSON.parse(event.data);
       const type = message.data.e;
       if (this.callbacks[type]) {
+        //@ts-ignore
         this.callbacks[type].forEach(({ callback }) => {
           if (type === SocketManagerType.Ticker) {
             const newTicker: Partial<Ticker> = {
@@ -81,7 +82,8 @@ export class SocketManager {
   async deRegisterCallback(type: string, id: string) {
     if (this.callbacks[type]) {
       const index = this.callbacks[type].findIndex(
-        (callback) => callback.id === id
+        //@ts-ignore
+        (callback) => callback.id === id,
       );
       if (index !== -1) {
         this.callbacks[type].splice(index, 1);
